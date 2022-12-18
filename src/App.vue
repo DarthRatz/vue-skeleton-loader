@@ -5,9 +5,7 @@ import ProfileCardSkeleton from './components/ProfileCardSkeleton.vue'
 
 <template>
   <Suspense>
-    <template #default>
-      <ProfileCard />
-    </template>
+    <ProfileCard />
     <template #fallback>
       <ProfileCardSkeleton />
     </template>

@@ -16,11 +16,10 @@ import { ref } from "vue"
 
 const userId = Math.ceil(Math.random() * 25)
 const userDataURL = `https://dummyjson.com/users/${userId}`;
-const getUserData = await fetch(userDataURL);
 
 export default {
     async setup() {
-        const userData = ref(await getUserData.json());
+        const userData = ref(await (await fetch(userDataURL)).json());
         return {
             userData
         };

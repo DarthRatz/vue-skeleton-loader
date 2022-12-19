@@ -13,7 +13,8 @@
 
 <style scoped>
 .profile-image img {
-    height: 25px;
+    background-color: azure;
+    height: 100%;
     padding-top: 100%;
     animation: pulse-bg 1s infinite;
 }
@@ -39,7 +40,7 @@
 
 @keyframes pulse-bg {
     0% {
-        background-color: lightslategray;
+        background-color: azure;
     }
 
     50% {
@@ -47,7 +48,7 @@
     }
 
     100% {
-        background-color: lightslategray;
+        background-color: azure;
     }
 }
 </style>

@@ -29,10 +29,13 @@ export default {
 
 <style>
 .profile-card {
+    border-radius: 50px;
+    background: #e0e0e0;
+    box-shadow:  20px  20px 60px #bebebe,
+                -20px -20px 60px #ffffff;
     width: 100%;
     max-width: 700px;
     min-height: 180px;
-    background-color: aliceblue;
     margin: 0 auto;
     padding: 30px;
     box-sizing: border-box;
@@ -46,6 +49,7 @@ export default {
 }
 
 .profile-image img {
+    background-color: azure;
     width: 100%;
     height: auto;
     border-radius: 50%;

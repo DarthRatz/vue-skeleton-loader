@@ -6,25 +6,23 @@
         <div class="profile-info">
             <span>Written By</span>
             <h3>{{ userData.firstName }} {{ userData.lastName }}</h3>
-            <p>{{ userData.email }}</p>
+            <p>
+                {{ userData.company.title }}<br/>
+                {{ userData.company.name }}
+            </p>
         </div>
     </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import { ref } from "vue"
+import { Convert } from "../types/UserResponse";
 
 const userId = Math.ceil(Math.random() * 25)
 const userDataURL = `https://dummyjson.com/users/${userId}`;
-
-export default {
-    async setup() {
-        const userData = ref(await (await fetch(userDataURL)).json());
-        return {
-            userData
-        };
-    }
-}
+const getUserData = await fetch(userDataURL);
+const responseJSON = ref(await getUserData.json());
+const userData = Convert.toUser(responseJSON);
 </script>
 
 <style>
@@ -33,6 +31,8 @@ export default {
     background: #e0e0e0;
     box-shadow:  20px  20px 60px #bebebe,
                 -20px -20px 60px #ffffff;
+    background-color: #ffd000;
+    background-image: linear-gradient(315deg, #ffd000 0%, #99e5ea 22%, #28a3af 49%, #06748c 75%, #1a1446 100%);
     width: 100%;
     max-width: 700px;
     min-height: 180px;
@@ -64,18 +64,18 @@ export default {
 
 .profile-info span {
     text-transform: uppercase;
-    color: #777;
+    color: azure;
     letter-spacing: 3px;
 }
 
 .profile-info h3 {
     margin: 10px 0;
     font-size: 1.5em;
-    color: #222;
+    color: azure;
 }
 
 .profile-info p {
     line-height: 140%;
-    color: #777;
+    color: azure;
 }
 </style>

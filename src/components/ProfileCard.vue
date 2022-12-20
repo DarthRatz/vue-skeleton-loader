@@ -40,6 +40,7 @@ const userData = ref<User>(await getUserData.json());
     box-sizing: border-box;
     overflow: hidden;
     border-radius: 20px;
+    margin-top: 5rem;
 }
 
 .profile-image {

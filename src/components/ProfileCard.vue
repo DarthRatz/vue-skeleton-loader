@@ -16,13 +16,12 @@
 
 <script setup lang="ts">
 import { ref } from "vue"
-import { Convert } from "../types/UserResponse";
+import type { User } from "../types/UserResponse";
 
 const userId = Math.ceil(Math.random() * 25)
 const userDataURL = `https://dummyjson.com/users/${userId}`;
 const getUserData = await fetch(userDataURL);
-const responseJSON = ref(await getUserData.json());
-const userData = Convert.toUser(responseJSON);
+const userData = ref<User>(await getUserData.json());
 </script>
 
 <style>
@@ -32,7 +31,7 @@ const userData = Convert.toUser(responseJSON);
     box-shadow:  20px  20px 60px #bebebe,
                 -20px -20px 60px #ffffff;
     background-color: #ffd000;
-    background-image: linear-gradient(315deg, #ffd000 0%, #99e5ea 22%, #28a3af 49%, #06748c 75%, #1a1446 100%);
+    background-image: linear-gradient(315deg, #ffd000 0%, #99e5ea 25%, #28a3af 50%, #06748c 75%, #1a1446 100%);
     width: 100%;
     max-width: 700px;
     min-height: 180px;
@@ -51,7 +50,7 @@ const userData = Convert.toUser(responseJSON);
 .profile-image img {
     background-color: azure;
     width: 100%;
-    height: auto;
+    height: 100%;
     border-radius: 50%;
     border: 5px solid #bada55;
     padding: 5px;
